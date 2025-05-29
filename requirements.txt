@@ -5,5 +5,5 @@ pillow
 requests
 torch
 torchvision
-ultralytics==8.0.20
+ultralytics
 opencv-python-headless
