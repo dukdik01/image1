@@ -7,7 +7,7 @@ from io import BytesIO
 images = {
     "หมาป่ากับปั๊ก": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Comparison_of_a_wolf_and_a_pug.png/250px-Comparison_of_a_wolf_and_a_pug.png",
     "แมว": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cat_poster_1.jpg/320px-Cat_poster_1.jpg",
-    "นกฮูก": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Western_Screech_Owl.jpg/320px-Western_Screech_Owl.jpg"
+    "นกฮูก": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Chouettes.jpg/250px-Chouettes.jpg"
 }
 
 if "selected_image_url" not in st.session_state:
