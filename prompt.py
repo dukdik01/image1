@@ -26,7 +26,6 @@ if not st.session_state.selected_image_url:
             if st.button(f"ดูภาพ: {caption}", key=caption):
                 st.session_state.selected_image_url = url
                 st.session_state.selected_caption = caption
-                st.experimental_rerun()  # เพิ่มตรงนี้
 else:
     try:
         # โหลดรูปจาก URL
@@ -48,4 +47,3 @@ else:
     if st.button("🔙 กลับไปหน้ารูปทั้งหมด"):
         st.session_state.selected_image_url = None
         st.session_state.selected_caption = ""
-        st.experimental_rerun()  # เพิ่มตรงนี้
