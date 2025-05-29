@@ -26,7 +26,6 @@ if not st.session_state.selected_image_url:
             if st.button(f"ดูภาพ: {caption}", key=caption):
                 st.session_state.selected_image_url = url
                 st.session_state.selected_caption = caption
-                st.experimental_rerun()
 else:
     try:
         # โหลดรูปจาก URL
@@ -39,27 +38,12 @@ else:
         width = st.slider("ปรับความกว้าง (px)", 50, 1000, img.width)
         height = st.slider("ปรับความสูง (px)", 50, 1000, img.height)
 
-        # Checkbox flip image
-        flip = st.checkbox("กลับภาพ (Flip image)")
-
         resized_img = img.resize((width, height))
-
-        if flip:
-            resized_img = ImageOps.mirror(resized_img)  # กลับภาพแนวนอน
 
         st.image(resized_img, caption=f"{st.session_state.selected_caption} ({width}x{height})", use_container_width=False)
     except Exception as e:
         st.error(f"ไม่สามารถโหลดภาพได้: {e}")
-
-    col1, col2 = st.columns([1,1])
-    with col1:
-        if st.button("🔙 กลับไปหน้ารูปทั้งหมด"):
-            st.session_state.selected_image_url = None
-            st.session_state.selected_caption = ""
-            st.experimental_rerun()
-    with col2:
-        if st.button("🔄 รีเซตการตั้งค่า"):
-            # รีเซตขนาดและ flip
-            # เนื่องจาก slider กับ checkbox ไม่ได้เก็บใน session_state โดยตรง
-            # ให้ rerun หน้าโดยไม่เปลี่ยนสถานะภาพ
-            st.experimental_rerun()
+    
+    if st.button("🔙 กลับไปหน้ารูปทั้งหมด"):
+        st.session_state.selected_image_url = None
+        st.session_state.selected_caption = ""
