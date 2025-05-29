@@ -74,9 +74,6 @@ with col1:
 with col2:
     img2_caption = st.selectbox("เลือกรูปภาพที่ 2", list(images.keys()), index=1, key="blend2")
 
-# เลือกภาพที่เด่น
-dominant_caption = st.radio("เลือกรูปที่ต้องการให้เด่น", [img1_caption, img2_caption], index=0)
-
 # ความเด่น (ค่าผสม)
 alpha = st.slider("ระดับความเด่น (0.0 - 1.0)", 0.0, 1.0, 0.7, step=0.01)
 
