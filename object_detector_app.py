@@ -31,25 +31,24 @@ elif mode == "🌐 URL":
             st.error(f"ไม่สามารถโหลดภาพจาก URL ได้: {e}")
 
 # แสดงภาพและวิเคราะห์
-if image is not None:
-    st.image(image, caption="ภาพที่คุณเลือก", use_column_width=True)
+if image:
+    st.image(image, caption="📷 ภาพต้นฉบับ", use_container_width=True)
 
-    # ตรวจจับวัตถุ
-    st.subheader("🔍 วัตถุที่ตรวจพบ")
-    results = model(image)
+    with st.spinner("กำลังตรวจจับวัตถุ..."):
+        model = YOLO("yolov8n.pt")
+        results = model.predict(image)
 
-    # แสดงวัตถุที่ตรวจพบ
-    labels = results[0].names
-    detected_classes = set()
-    for box in results[0].boxes:
-        cls_id = int(box.cls[0].item())
-        detected_classes.add(labels[cls_id])
+        result = results[0]
+        names = model.names
+        detected = set()
+        for box in result.boxes:
+            cls_id = int(box.cls[0])
+            detected.add(names[cls_id])
 
-    if detected_classes:
-        st.success(f"พบวัตถุดังต่อไปนี้: {', '.join(detected_classes)}")
-    else:
-        st.warning("ไม่พบวัตถุใดในภาพ")
+        st.success("✅ ตรวจจับวัตถุสำเร็จแล้ว")
+        st.write("### 🔍 พบวัตถุดังนี้:")
+        for obj in detected:
+            st.markdown(f"- {obj}")
 
-    # แสดงภาพพร้อมกล่อง object detection
-    img_with_boxes = results[0].plot()
-    st.image(img_with_boxes, caption="วัตถุที่ตรวจพบ", use_column_width=True)
+        st.image(result.plot(), caption="📦 ภาพพร้อมกล่อง", use_container_width=True)
+
