@@ -30,11 +30,7 @@ if not st.session_state.selected_image_url:
     cols = st.columns(3)
     for idx, (caption, url) in enumerate(images.items()):
         with cols[idx]:
-            st.image(url, caption=caption, use_container_width=True)
-            if st.button(f"ดูภาพ: {caption}", key=caption):
-                st.session_state.selected_image_url = url
-                st.session_state.selected_caption = caption
-                st.experimental_rerun()  # ให้เปลี่ยนหน้าทันที
+            st.image(url, caption=caption, use_container_width=True)           
 else:
     try:
         # โหลดรูปจาก URL
