@@ -5,7 +5,7 @@ from io import BytesIO
 from ultralytics import YOLO
 
 # โหลดโมเดล YOLOv5s
-model = YOLO("yolov5s.pt")
+model = YOLO("yolov8n.pt")
 
 st.title("🔍 ตรวจจับวัตถุในภาพ (Object Detection)")
 
