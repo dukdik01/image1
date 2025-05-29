@@ -49,7 +49,7 @@ def plot_histogram(image):
 # URLs ของภาพตัวอย่าง
 # -------------------------------
 image_options = {
-    "Dog": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bulldog_inglese.jpg",
+    "Dog": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheconversation.com%2Fthe-science-of-happier-dogs-5-tips-to-help-your-canine-friends-live-their-best-life-236952&psig=AOvVaw0sP4pSZcBNRoZIEeB7020G&ust=1748587969733000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCLDa-vWLyI0DFQAAAAAdAAAAABAE",
     "Cat": "https://cdn.britannica.com/39/226539-050-D21D7721/Portrait-of-a-cat-with-whiskers-visible.jpg"
 }
 
